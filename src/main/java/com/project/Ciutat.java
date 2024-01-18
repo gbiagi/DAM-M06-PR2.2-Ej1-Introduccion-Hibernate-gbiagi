@@ -9,8 +9,10 @@ public class Ciutat implements Serializable {
     private String pais;
     private int codiPostal;
 
+    public Ciutat() {
+    }
+
     public Ciutat(String nom, String pais, int codiPostal) {
-        this.ciutatId = ciutatId;
         this.nom = nom;
         this.pais = pais;
         this.codiPostal = codiPostal;

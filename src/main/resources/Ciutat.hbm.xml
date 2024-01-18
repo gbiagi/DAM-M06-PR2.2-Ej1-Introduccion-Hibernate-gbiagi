@@ -3,18 +3,11 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="com.example.Ciutat" table="ciutats">
-        <id name="ciutatId" type="long">
-            <column name="ciutat_id" />
+        <id name="ciutatId" type="long" column="ciutatId">
             <generator class="native" />
         </id>
-        <property name="nom" type="string">
-            <column name="nom" />
-        </property>
-        <property name="pais" type="string">
-            <column name="pais" />
-        </property>
-        <property name="codiPostal" type="int">
-            <column name="codi_postal" />
-        </property>
+        <property name="nom" type="string" column="nom"/>
+        <property name="pais" type="string" column="pais"/>
+        <property name="codiPostal" type="int" column="codiPostal"/>ç
     </class>
 </hibernate-mapping>

@@ -2,21 +2,12 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="com.example.Ciutada" table="ciutadans">
-        <id name="id" type="long">
-            <column name="ciutada_id" />
+        <id name="id" type="long" column="Id">
             <generator class="native" />
         </id>
-        <property name="ciutatId" type="long">
-            <column name="ciutat_id" />
-        </property>
-        <property name="nom" type="string">
-            <column name="nom" />
-        </property>
-        <property name="cognom" type="string">
-            <column name="cognom" />
-        </property>
-        <property name="edat" type="int">
-            <column name="edat" />
-        </property>
+        <property name="ciutatId" type="long" column="ciutatId"/>
+        <property name="nom" type="string" column="nom"/>
+        <property name="cognom" type="string" column="cognom"/>
+        <property name="edat" type="int" column="edat"/>
     </class>
 </hibernate-mapping>

@@ -7,8 +7,9 @@ public class Ciutada {
     private String cognom;
     private int edat;
 
+    public Ciutada() {
+    }
     public Ciutada(long ciutatId, String nom, String cognom, int edat) {
-        this.id = id;
         this.ciutatId = ciutatId;
         this.nom = nom;
         this.cognom = cognom;
