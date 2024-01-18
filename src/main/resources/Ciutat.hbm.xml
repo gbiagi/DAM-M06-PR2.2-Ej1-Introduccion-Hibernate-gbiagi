@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.example.Ciutat" table="ciutats">
+    <class name="com.project.Ciutat" table="ciutats">
         <id name="ciutatId" type="long" column="ciutatId">
             <generator class="native" />
         </id>
         <property name="nom" type="string" column="nom"/>
         <property name="pais" type="string" column="pais"/>
-        <property name="codiPostal" type="int" column="codiPostal"/>ç
+        <property name="codiPostal" type="int" column="codiPostal"/>
     </class>
 </hibernate-mapping>
