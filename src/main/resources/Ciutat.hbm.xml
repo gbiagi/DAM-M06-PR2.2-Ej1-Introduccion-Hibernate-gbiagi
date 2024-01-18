@@ -1,0 +1,20 @@
+<!-- Ciutat.hbm.xml -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.Ciutat" table="ciutats">
+        <id name="ciutatId" type="long">
+            <column name="ciutat_id" />
+            <generator class="native" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" />
+        </property>
+        <property name="pais" type="string">
+            <column name="pais" />
+        </property>
+        <property name="codiPostal" type="int">
+            <column name="codi_postal" />
+        </property>
+    </class>
+</hibernate-mapping>
