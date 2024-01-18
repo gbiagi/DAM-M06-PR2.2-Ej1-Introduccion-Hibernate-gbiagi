@@ -36,95 +36,99 @@ public class Manager {
         factory.close();
     }
   
-//    public static Cart addCart(String type){
-//        Session session = factory.openSession();
-//        Transaction tx = null;
-//        Cart result = null;
-//        try {
-//            tx = session.beginTransaction();
-//            result = new Cart(type);
-//            session.save(result);
-//            tx.commit();
-//        } catch (HibernateException e) {
-//            if (tx!=null) tx.rollback();
-//            e.printStackTrace();
-//            result = null;
-//        } finally {
-//            session.close();
-//        }
-//        return result;
-//    }
-//
-//    public static Item addItem(String name){
-//        Session session = factory.openSession();
-//        Transaction tx = null;
-//        Item result = null;
-//        try {
-//            tx = session.beginTransaction();
-//            result = new Item(name);
-//            session.save(result);
-//            tx.commit();
-//        } catch (HibernateException e) {
-//            if (tx!=null) tx.rollback();
-//            e.printStackTrace();
-//            result = null;
-//        } finally {
-//            session.close();
-//        }
-//        return result;
-//    }
+    public static Ciutada addCiutada(long ciutatId, String nom, String cognom, int edat){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Ciutada result = null;
+        try {
+            tx = session.beginTransaction();
+            result = new Ciutada(ciutatId, nom, cognom, edat);
+            session.save(result);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            result = null;
+        } finally {
+            session.close();
+        }
+        return result;
+    }
 
-//    public static <T> T getById(Class<? extends T> clazz, long id){
-//        Session session = factory.openSession();
-//        Transaction tx = null;
-//        T obj = null;
-//        try {
-//            tx = session.beginTransaction();
-//            obj = clazz.cast(session.get(clazz, id));
-//            tx.commit();
-//        } catch (HibernateException e) {
-//            if (tx!=null) tx.rollback();
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//        }
-//        return obj;
-//    }
-//
-//    public static void updateItem(long itemId, String name){
-//        Session session = factory.openSession();
-//        Transaction tx = null;
-//        try {
-//            tx = session.beginTransaction();
-//            Item obj = (Item) session.get(Item.class, itemId);
-//            obj.setName(name);
-//            session.update(obj);
-//            tx.commit();
-//        } catch (HibernateException e) {
-//            if (tx!=null) tx.rollback();
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//        }
-//    }
-//
-//    public static void updateCart(long cartId, String type, Set<Item> items){
-//        Session session = factory.openSession();
-//        Transaction tx = null;
-//        try {
-//            tx = session.beginTransaction();
-//            Cart obj = (Cart) session.get(Cart.class, cartId);
-//            obj.setType(type);
-//            obj.setItems(items);
-//            session.update(obj);
-//            tx.commit();
-//        } catch (HibernateException e) {
-//            if (tx!=null) tx.rollback();
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//        }
-//    }
+    public static Ciutat addCiutat(String nom, String pais, int codiPostal){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Ciutat result = null;
+        try {
+            tx = session.beginTransaction();
+            result = new Ciutat(nom, pais, codiPostal);
+            session.save(result);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            result = null;
+        } finally {
+            session.close();
+        }
+        return result;
+    }
+
+    public static <T> T getById(Class<? extends T> clazz, long id){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        T obj = null;
+        try {
+            tx = session.beginTransaction();
+            obj = clazz.cast(session.get(clazz, id));
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return obj;
+    }
+
+    public static void updateCiutat(long ciutatId, String nom, String pais, int codiPostal){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Ciutat obj = (Ciutat) session.get(Ciutat.class, ciutatId);
+            obj.setNom(nom);
+            obj.setPais(pais);
+            obj.setCodiPostal(codiPostal);
+            session.update(obj);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public static void updateCiutada(long id, long ciutatId, String nom, String cognom, int edat){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Ciutada obj = (Ciutada) session.get(Ciutada.class, id);
+            obj.setCiutatId(ciutatId);
+            obj.setNom(nom);
+            obj.setCognom(cognom);
+            obj.setEdat(edat);
+            session.update(obj);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
   
     public static <T> void delete(Class<? extends T> clazz, Serializable id){
         Session session = factory.openSession();
@@ -152,7 +156,7 @@ public class Manager {
         Collection<?> result = null;
         try {
             tx = session.beginTransaction();
-            if (where.length() == 0) {
+            if (where.isEmpty()) {
                 result = session.createQuery("FROM " + clazz.getName()).list(); 
             } else {
                 result = session.createQuery("FROM " + clazz.getName() + " WHERE " + where).list();

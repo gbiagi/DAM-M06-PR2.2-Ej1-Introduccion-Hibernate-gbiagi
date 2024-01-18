@@ -7,7 +7,7 @@ public class Ciutada {
     private String cognom;
     private int edat;
 
-    public Ciutada(long id, long ciutatId, String nom, String cognom, int edat) {
+    public Ciutada(long ciutatId, String nom, String cognom, int edat) {
         this.id = id;
         this.ciutatId = ciutatId;
         this.nom = nom;
@@ -15,11 +15,11 @@ public class Ciutada {
         this.edat = edat;
     }
 
-    public long getId() {
+    public long getCiutadaId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setCiutadaId(long id) {
         this.id = id;
     }
 

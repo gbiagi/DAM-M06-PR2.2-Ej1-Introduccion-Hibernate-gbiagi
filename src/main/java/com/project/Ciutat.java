@@ -1,6 +1,7 @@
 package com.project;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Ciutat implements Serializable {
     private long ciutatId;
@@ -8,7 +9,7 @@ public class Ciutat implements Serializable {
     private String pais;
     private int codiPostal;
 
-    public Ciutat(long ciutatId, String nom, String pais, int codiPostal) {
+    public Ciutat(String nom, String pais, int codiPostal) {
         this.ciutatId = ciutatId;
         this.nom = nom;
         this.pais = pais;
