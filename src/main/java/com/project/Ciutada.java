@@ -16,6 +16,14 @@ public class Ciutada {
         this.edat = edat;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getCiutadaId() {
         return id;
     }
@@ -58,12 +66,6 @@ public class Ciutada {
 
     @Override
     public String toString() {
-        return "Ciutada{" +
-                "id=" + id +
-                ", ciutatId=" + ciutatId +
-                ", nom='" + nom + '\'' +
-                ", cognom='" + cognom + '\'' +
-                ", edat=" + edat +
-                '}';
+        return nom + " " + cognom + ", " + edat + " - " + id;
     }
 }

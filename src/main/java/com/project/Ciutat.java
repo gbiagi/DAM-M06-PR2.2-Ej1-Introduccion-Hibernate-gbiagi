@@ -52,11 +52,6 @@ public class Ciutat implements Serializable {
 
     @Override
     public String toString() {
-        return "Ciutat{" +
-                "ciutatId=" + ciutatId +
-                ", nom='" + nom + '\'' +
-                ", pais='" + pais + '\'' +
-                ", codiPostal=" + codiPostal +
-                '}';
+        return nom + ", " + pais + " " + codiPostal;
     }
 }
