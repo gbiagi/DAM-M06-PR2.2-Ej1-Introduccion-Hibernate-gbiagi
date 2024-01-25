@@ -1,10 +1,24 @@
 package com.project;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ciutada")
 public class Ciutada {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "ciutat_id")
     private long ciutatId;
+
+    @Column(name = "nom")
     private String nom;
+
+    @Column(name = "cognom")
     private String cognom;
+
+    @Column(name = "edat")
     private int edat;
 
     public Ciutada() {

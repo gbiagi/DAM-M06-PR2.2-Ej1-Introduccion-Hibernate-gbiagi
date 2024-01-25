@@ -1,17 +1,26 @@
 package com.project;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
+@Entity
+@Table(name = "ciutat")
 public class Ciutat implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ciutatId;
+
+    @Column(name = "nom")
     private String nom;
+
+    @Column(name = "pais")
     private String pais;
+
+    @Column(name = "codi_postal")
     private int codiPostal;
 
     public Ciutat() {
     }
-
     public Ciutat(String nom, String pais, int codiPostal) {
         this.nom = nom;
         this.pais = pais;
